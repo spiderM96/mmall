@@ -87,6 +87,7 @@ public class Category {
         this.updateTime = updateTime;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
