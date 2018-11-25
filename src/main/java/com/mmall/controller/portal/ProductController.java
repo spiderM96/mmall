@@ -4,10 +4,7 @@ import com.mmall.common.ServerResponse;
 import com.mmall.service.IProductService;
 import com.mmall.vo.ProductDetailVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author:Chengkangxin
@@ -23,6 +20,12 @@ public class ProductController {
     @RequestMapping("detail.do")
     @ResponseBody
     public ServerResponse<ProductDetailVo> detail(Integer productId){
+        return iProductService.getProductDetail(productId);
+    }
+
+    @RequestMapping(value = "/{productId}",method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse<ProductDetailVo> detailRESTful(@PathVariable Integer productId){
         return iProductService.getProductDetail(productId);
     }
 
